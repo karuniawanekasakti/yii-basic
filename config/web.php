@@ -19,6 +19,11 @@ $config = [
         'karyawan' => [
             'class' => 'app\modules\karyawan\Karyawan',
         ],
+        'user' => [
+            'class' => 'dektrium\user\Module',
+            'enableUnconfirmedLogin' => true,
+            'admins' => ['admin'],
+        ],
     ],
     'components' => [
         'request' => [
@@ -28,10 +33,10 @@ $config = [
         'cache' => [
             'class' => 'yii\caching\DbCache',
         ],
-        'user' => [
-            'identityClass' => 'app\models\User',
-            'enableAutoLogin' => true,
-        ],
+        // 'user' => [
+        //     'identityClass' => 'app\models\User',
+        //     'enableAutoLogin' => true,
+        // ],
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],

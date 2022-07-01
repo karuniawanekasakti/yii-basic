@@ -45,12 +45,17 @@ AppAsset::register($this);
             ['label' => 'CRUD', 'url' => ['/data/index']],
             ['label' => 'GII', 'url' => ['/gii']],
             ['label' => 'front', 'url' => ['/front']],
-
+            ['label' => 'dropdown', 'url' => ['/front'], 'items' => [
+                ['label' => 'front', 'url' => ['/front']],
+            ]],
+        
             Yii::$app->user->isGuest ? (
-                ['label' => 'Login', 'url' => ['/site/login']]
+                // ['label' => 'Login', 'url' => ['/site/login']]
+                ['label' => 'Login', 'url' => ['/user/security/login']]
             ) : (
                 '<li>'
-                . Html::beginForm(['/site/logout'], 'post', ['class' => 'form-inline'])
+                // . Html::beginForm(['/site/logout'], 'post', ['class' => 'form-inline'])
+                . Html::beginForm(['/user/security/logout'], 'post', ['class' => 'form-inline'])
                 . Html::submitButton(
                     'Logout (' . Yii::$app->user->identity->username . ')',
                     ['class' => 'btn btn-link logout']
